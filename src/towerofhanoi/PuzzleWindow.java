@@ -1,12 +1,5 @@
 package towerofhanoi;
 
-// Virginia Tech Honor Code Pledge:
-//
-// As a Hokie, I will conduct myself with honor and integrity at all times.
-// I will not lie, cheat, or steal, nor will I
-// accept the actions of those who do.
-// -- Michael Peters (mpeters01)
-
 import cs2.Button;
 import cs2.Shape;
 import cs2.Window;
@@ -17,12 +10,6 @@ import java.util.Currency;
 import java.util.Observable;
 import java.util.Observer;
 
-/**
- * The main front-end work and the view for the Tower of Hanoi puzzle
- *
- * @author Michael Peters
- * @version 10.12.2021
- */
 public class PuzzleWindow implements Observer {
 
     private HanoiSolver game;
