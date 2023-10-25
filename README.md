@@ -10,7 +10,7 @@
 
 ## 任务说明	
 
-​	关于我们已经给你了的东西，我们为你提供了2个jar软件包，一个 student 的 包 和 towerofhanoi 包的大部分功能。你只需要完善 位于 towerofhanoi 包中的 LinkedStack 和 HanoiSolver 即可，我们在下文会给你详细的实现需求。
+​	关于我们已经给你了的东西，我们为你提供了2个jar软件包，一个 student 的 包 和 towerofhanoi 包的大部分功能。你只需要完善 位于 towerofhanoi 包中的 LinkedStack , Tower 和 HanoiSolver 即可，我们在下文会给你详细的实现需求。
 
 ​	如果你无法使用位于 lib 目录下的软件包，请自行根据使用环境搜索解决。
 
@@ -58,7 +58,7 @@ public class LinkedStack<T> implements StackInterface<T>
 
 对于 setNextNode 和 getNextNode,getData ,顾名思义，第一个是为 this 设置一个 next,另外两个返回 next，data; (从 UML 里面，你可以看见一个函数的参数和返回值，请善用)
 
-##### LinkedStack
+##### 1.LinkedStack
 
 ###### -1.@Override
 
@@ -108,7 +108,39 @@ public class LinkedStack<T> implements StackInterface<T>
 
 
 
-#### 2.HanoiSolver
+#### 2.Tower
+
+Tower 作为一个继承自 LinkedStack 的类， 你应该这样声明：
+
+```java
+public class Tower extends LinkedStack<Disk>
+```
+
+Disk 我们已经给你写好了，具体可以自行查代码。
+
+###### 1.Tower(Position position)
+
+​	构造，使用 super()
+
+###### 2.position(): Position
+
+​	返回这个的 position
+
+###### 3.push(Disk disk):
+
+​	因为 汉诺塔 具有 小的 必须在 大的 上面的特性，所以我们这里需要重构下 push 函数。
+
+​	当 disk 是 null 时，throw new IllegalArgumentException();
+
+​	否则，若塔为空，直接加进去。若塔不空，使用 compareTo 来 判断可不可以放，要是不能的话， throw new IllegalStateException();
+
+
+
+
+
+
+
+#### 3.HanoiSolver
 
 你需要完成的是 solveTower 和 solve 这俩个函数。
 
@@ -132,4 +164,4 @@ public class LinkedStack<T> implements StackInterface<T>
 
 恭喜你完成了任务，你现在可以使用 ProjectRunner 来运行你的程序，看看能否获得一个 汉诺塔的可视化界面。
 
-（如果对此文档有质疑或者想玩点大的，你可以阅读origin.pdf）
+（如果对此文档有质疑或者想玩点大的，你可以阅读origin.pdf
